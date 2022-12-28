@@ -1,0 +1,26 @@
+.footer {
+    text-align: center;
+    text-shadow: 3px -3px 3px #888;
+}
+
+.footer__link {
+    text-decoration: none;
+}
+
+.footer__link:visited {
+    color: rgb(0, 210, 210);
+}
+
+.footer__link:focus {
+    outline: 2px solid currentColor;
+}
+
+.footer__link:hover {
+    color: rgb(0, 160, 160);
+    border-bottom: 1px solid;
+    outline: none;
+}
+
+.footer__link:active {
+    color: rgb(0, 230, 230);
+}
