@@ -13,5 +13,5 @@ Welcome on my page. Exchanger is available here:
 
 - HTML
 - CSS
-- Javascript
+- JavaScript
 - BEM convention
