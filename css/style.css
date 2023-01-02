@@ -9,3 +9,15 @@ html {
 .body {
     font-family: "Lato", sans-serif;
 }
+
+.background {
+    background-image: url("../images/background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.amount {
+    font-size: 25px;
+}

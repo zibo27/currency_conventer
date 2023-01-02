@@ -10,9 +10,10 @@
 }
 
 .table__caption {
-    caption-side: bottom;
+    caption-side: top;
     text-align: center;
     margin-top: 10px;
+    font-size: 20px;
 }
 
 .table__header {
