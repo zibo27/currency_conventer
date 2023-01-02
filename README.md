@@ -2,7 +2,7 @@
 
 ## DEMO:
 
-Welcome on my page. Exchanger is available here:
+Welcome on my page. Currency Exchange is available here:
 
 [CurrencyConvernter](https://zibo27.github.io/currency_conventer/)
 
