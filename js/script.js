@@ -1,71 +1,81 @@
-console.log("Witam Was serdecznie nazywam się Sebastian Pawłowski :) !");
+{
+    const calculateResult = (inputAmount, inputCurrency, outputCurrency) => {
+        const pln_eur = 0.2143714628708626;
+        const pln_usd = 0.2275468177577537;
+        const eur_usd = 1.061460395476369;
+        const pln_uah = 7.94912559618442;
+        const eur_uah = 37.08108108108108;
+        const usd_uah = 34.93402225755167;
 
-let formElement = document.querySelector(".js-form");
-let inputAmountElement = document.querySelector(".js-inputAmount");
-let inputCurrencyElement = document.querySelector(".js-inputCurrency");
-let outputCurrencyElement = document.querySelector(".js-outputCurrency");
-let totalElement = document.querySelector(".js-total");
+        switch (inputCurrency) {
+            case "PLN":
+                if (outputCurrency === "PLN")
+                    return inputAmount * 1;
+                else if (outputCurrency === "EUR")
+                    return inputAmount * pln_eur;
+                else if (outputCurrency === "USD")
+                    return inputAmount * pln_usd;
+                else if (outputCurrency === "UAH")
+                    return inputAmount * pln_uah;
 
-let pln_eur = 0.2143714628708626;
-let pln_usd = 0.2275468177577537;
-let eur_usd = 1.061460395476369;
-let pln_uah = 7.94912559618442;
-let eur_uah = 37.08108108108108;
-let usd_uah = 34.93402225755167;
+            case "EUR":
+                if (outputCurrency === "PLN")
+                    return inputAmount / pln_eur;
+                else if (outputCurrency === "EUR")
+                    return inputAmount * 1;
+                else if (outputCurrency === "USD")
+                    return inputAmount * eur_usd;
+                else if (outputCurrency === "UAH")
+                    return inputAmount * eur_uah;
 
-formElement.addEventListener("input", () => {
+            case "USD":
+                if (outputCurrency === "PLN")
+                    return inputAmount / pln_usd;
+                else if (outputCurrency === "EUR")
+                    return inputAmount / eur_usd;
+                else if (outputCurrency === "USD")
+                    return inputAmount * 1;
+                else if (outputCurrency === "UAH")
+                    return inputAmount / usd_uah;
 
-    let inputAmount = +inputAmountElement.value;
-    let inputCurrency = inputCurrencyElement.value;
-    let outputCurrency = outputCurrencyElement.value;
+            case "UAH":
+                if (outputCurrency === "PLN")
+                    return inputAmount / pln_uah;
+                else if (outputCurrency === "EUR")
+                    return inputAmount / eur_uah;
+                else if (outputCurrency === "USD")
+                    return inputAmount / usd_uah;
+                else if (outputCurrency === "UAH")
+                    return inputAmount * 1;
+            default:
+        }
+    };
 
-    switch
-    (inputCurrency) {
-        case "PLN":
-            if (outputCurrency === "PLN")
-                result = (inputAmount * 1);
-            else if (outputCurrency === "EUR")
-                result = (inputAmount * pln_eur);
-            else if (outputCurrency === "USD")
-                result = (inputAmount * pln_usd);
-            else if (outputCurrency === "UAH")
-                result = (inputAmount * pln_uah);
-            break;
+    const updateResultText = (result, outputCurrency) => {
+        const totalElement = document.querySelector(".js-total");
 
-        case "EUR":
-            if (outputCurrency === "PLN")
-                result = (inputAmount / pln_eur);
-            else if (outputCurrency === "EUR")
-                result = (inputAmount * 1);
-            else if (outputCurrency === "USD")
-                result = (inputAmount * eur_usd);
-            else if (outputCurrency === "UAH")
-                result = (inputAmount * eur_uah);
-            break;
-
-        case "USD":
-            if (outputCurrency === "PLN")
-                result = (inputAmount / pln_usd);
-            else if (outputCurrency === "EUR")
-                result = (inputAmount / eur_usd);
-            else if (outputCurrency === "USD")
-                result = (inputAmount * 1);
-            else if (outputCurrency === "UAH")
-                result = (inputAmount / usd_uah);
-            break;
-
-        case "UAH":
-            if (outputCurrency === "PLN")
-                result = (inputAmount / pln_uah);
-            else if (outputCurrency === "EUR")
-                result = (inputAmount / eur_uah);
-            else if (outputCurrency === "USD")
-                result = (inputAmount / usd_uah);
-            else if (outputCurrency === "UAH")
-                result = (inputAmount * 1);
-            break;
-      default:
+        totalElement.innerHTML = `${result.toFixed(2)} ${outputCurrency}`;
     }
 
-    totalElement.innerText = `${result.toFixed(2)} ${outputCurrency}`;
-})
+    const onFormSubmit = () => {
+
+        const inputAmountElement = document.querySelector(".js-inputAmount");
+        const inputCurrencyElement = document.querySelector(".js-inputCurrency");
+        const outputCurrencyElement = document.querySelector(".js-outputCurrency");
+
+        const inputAmount = +inputAmountElement.value;
+        const inputCurrency = inputCurrencyElement.value;
+        const outputCurrency = outputCurrencyElement.value;
+
+        const result = calculateResult(inputAmount, outputCurrency);
+        updateResultText(inputAmount, inputCurrency, outputCurrency, result);
+    }
+
+    const init = () => {
+        const formElement = document.querySelector(".js-form");
+
+        formElement.addEventListener("input", onFormSubmit);
+    }
+
+    init();
+}

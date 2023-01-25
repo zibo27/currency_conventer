@@ -13,5 +13,6 @@ Welcome on my page. Currency Exchange is available here:
 
 - HTML
 - CSS
+- ES6
 - JavaScript
 - BEM convention
