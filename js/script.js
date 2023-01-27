@@ -6,6 +6,7 @@
         const pln_uah = 7.94912559618442;
         const eur_uah = 37.08108108108108;
         const usd_uah = 34.93402225755167;
+        const uah_usd = 0.02862604105038;
 
         switch (inputCurrency) {
             case "PLN":
@@ -36,7 +37,7 @@
                 else if (outputCurrency === "USD")
                     return inputAmount * 1;
                 else if (outputCurrency === "UAH")
-                    return inputAmount / usd_uah;
+                    return inputAmount / uah_usd;
 
             case "UAH":
                 if (outputCurrency === "PLN")
