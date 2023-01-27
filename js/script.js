@@ -58,16 +58,13 @@
         totalElement.innerHTML = `${result.toFixed(2)} ${outputCurrency}`;
     };
 
-    const onFormSubmit = () => {
-
+    const onFormChange = () => {
         const inputAmountElement = document.querySelector(".js-inputAmount");
         const inputCurrencyElement = document.querySelector(".js-inputCurrency");
         const outputCurrencyElement = document.querySelector(".js-outputCurrency");
-
+        const outputCurrency = outputCurrencyElement.value;
         const inputAmount = +inputAmountElement.value;
         const inputCurrency = inputCurrencyElement.value;
-        const outputCurrency = outputCurrencyElement.value;
-
         const result = calculateResult(inputAmount, inputCurrency, outputCurrency);
         updateResultText(result, outputCurrency);
     };
@@ -75,7 +72,7 @@
     const init = () => {
         const formElement = document.querySelector(".js-form");
 
-        formElement.addEventListener("input", onFormSubmit);
+        formElement.addEventListener("input", onFormChange);
     };
 
     init();
