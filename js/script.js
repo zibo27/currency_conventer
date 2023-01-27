@@ -67,8 +67,8 @@
         const inputCurrency = inputCurrencyElement.value;
         const outputCurrency = outputCurrencyElement.value;
 
-        const result = calculateResult(inputAmount, outputCurrency);
-        updateResultText(inputAmount, inputCurrency, outputCurrency, result);
+        const result = calculateResult(inputAmount, inputCurrency, outputCurrency);
+        updateResultText(result, outputCurrency);
     }
 
     const init = () => {
