@@ -55,7 +55,7 @@
         const totalElement = document.querySelector(".js-total");
 
         totalElement.innerHTML = `${result.toFixed(2)} ${outputCurrency}`;
-    }
+    };
 
     const onFormSubmit = () => {
 
@@ -69,13 +69,13 @@
 
         const result = calculateResult(inputAmount, inputCurrency, outputCurrency);
         updateResultText(result, outputCurrency);
-    }
+    };
 
     const init = () => {
         const formElement = document.querySelector(".js-form");
 
         formElement.addEventListener("input", onFormSubmit);
-    }
+    };
 
     init();
 }
