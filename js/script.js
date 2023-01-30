@@ -10,44 +10,49 @@
 
         switch (inputCurrency) {
             case "PLN":
-                if (outputCurrency === "PLN")
-                    return inputAmount * 1;
-                else if (outputCurrency === "EUR")
-                    return inputAmount * pln_eur;
-                else if (outputCurrency === "USD")
-                    return inputAmount * pln_usd;
-                else if (outputCurrency === "UAH")
-                    return inputAmount * pln_uah;
-
+                switch (outputCurrency) {
+                    case "PLN":
+                        return inputAmount * 1;
+                    case "EUR":
+                        return inputAmount * pln_eur;
+                    case "USD":
+                        return inputAmount * pln_usd;
+                    case "UAH":
+                        return inputAmount * pln_uah
+                }
             case "EUR":
-                if (outputCurrency === "PLN")
-                    return inputAmount / pln_eur;
-                else if (outputCurrency === "EUR")
-                    return inputAmount * 1;
-                else if (outputCurrency === "USD")
-                    return inputAmount * eur_usd;
-                else if (outputCurrency === "UAH")
-                    return inputAmount * eur_uah;
-
+                switch (outputCurrency) {
+                    case "PLN":
+                        return inputAmount / pln_eur;
+                    case "EUR":
+                        return inputAmount * 1;
+                    case "USD":
+                        return inputAmount * eur_usd;
+                    case "UAH":
+                        return inputAmount * eur_uah;
+                }
             case "USD":
-                if (outputCurrency === "PLN")
-                    return inputAmount / pln_usd;
-                else if (outputCurrency === "EUR")
-                    return inputAmount / eur_usd;
-                else if (outputCurrency === "USD")
-                    return inputAmount * 1;
-                else if (outputCurrency === "UAH")
-                    return inputAmount / uah_usd;
-
+                switch (outputCurrency) {
+                    case "PLN":
+                        return inputAmount / pln_usd;
+                    case "EUR":
+                        return inputAmount / eur_usd;
+                    case "USD":
+                        return inputAmount * 1;
+                    case "UAH":
+                        return inputAmount / uah_usd;
+                }
             case "UAH":
-                if (outputCurrency === "PLN")
-                    return inputAmount / pln_uah;
-                else if (outputCurrency === "EUR")
-                    return inputAmount / eur_uah;
-                else if (outputCurrency === "USD")
-                    return inputAmount / usd_uah;
-                else if (outputCurrency === "UAH")
-                    return inputAmount * 1;
+                switch (outputCurrency) {
+                    case "PLN":
+                        return inputAmount / pln_uah;
+                    case "EUR":
+                        return inputAmount / eur_uah;
+                    case "USD":
+                        return inputAmount / usd_uah;
+                    case "UAH":
+                        return inputAmount * 1;
+                }
             default:
         }
     };
